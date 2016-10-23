@@ -10,6 +10,7 @@ namespace work
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

@@ -13,6 +13,7 @@ namespace work
             Save(result);
             return result;
         }
+        public delegate T OrderHandler<T>(Item item);
         public delegate T Handler<T>(TransactionRequest request);
         public delegate void SaveHandler(Transaction transaction);
         //protected abstract bool Check(TransactionRequest request);
@@ -20,11 +21,15 @@ namespace work
         //protected abstract void Save(Transaction transaction);
     }
 
+    public class Item
+    {
+    }
    
     public class Transaction
     {
     }
 
-    public class TransactionRequest {
+    public class TransactionRequest
+    {
     }
 }
