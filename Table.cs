@@ -15,11 +15,14 @@ namespace work
         protected List<List<object>> data;
         protected int countRow;
         protected int countColumn;
-        protected List<IObserver> observers;
+        protected List<updateHandler> updates;
+
+        public delegate void updateHandler();
+
         public Table()
         {
             data = new List<List<object>>();
-            observers = new List<IObserver> ();
+            updates = new List<updateHandler> ();
             countRow = 0;
             countColumn = 0;
         }
@@ -139,19 +142,19 @@ namespace work
 
         public void Attach(IObserver ob)
         {
-            observers.Add(ob);
+            updates.Add(ob.Update);
         }
 
         public void Detach(IObserver ob)
         {
-            observers.Remove(ob);
+            updates.Remove(ob.Update);
         }
 
         public void Notify()
         {
-            foreach (var ob in observers)
+            foreach (var update in updates)
             {
-                ob.Update();
+                update();
             }
         }
     }
