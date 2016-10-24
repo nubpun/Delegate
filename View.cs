@@ -9,10 +9,10 @@ namespace work
     class View : IObserver
     {
         private Table table;
-        public View(Table t)
+        public View(Table table)
         {
-            t.Attach(this);
-            table = t;
+            table.Attach(this);
+            this.table = table;
         }
         public void Update()
         {

@@ -21,6 +21,10 @@ namespace work
             t.InsertColumn(3);
             t.InsertRow(3);
             t.InsertRow(0);
+            t.Detach(v);
+            t.InsertRow(0);
+            t.Attach(v);
+            v.Update();
         }
     }
 }
