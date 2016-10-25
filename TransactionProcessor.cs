@@ -4,7 +4,8 @@ namespace work
 {
     public abstract class TransactionProcessor
     {
-        public Transaction Process(TransactionRequest request, Handler<bool> Check, Handler<Transaction> Register, SaveHandler Save)
+        
+        public Transaction Process<TRequest>(TRequest request, Handler<bool, TRequest> Check, Handler<Transaction, TRequest> Register, SaveHandler Save)
         {
 
             if (!Check(request))
@@ -13,16 +14,8 @@ namespace work
             Save(result);
             return result;
         }
-        public delegate T OrderHandler<T>(Item item);
-        public delegate T Handler<T>(TransactionRequest request);
+        public delegate T Handler<T, TRequest>(TRequest request);
         public delegate void SaveHandler(Transaction transaction);
-        //protected abstract bool Check(TransactionRequest request);
-        //protected abstract Transaction Register(TransactionRequest request);
-        //protected abstract void Save(Transaction transaction);
-    }
-
-    public class Item
-    {
     }
    
     public class Transaction
