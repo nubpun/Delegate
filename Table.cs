@@ -17,7 +17,7 @@ namespace work
         protected int countColumn;
         protected List<updateHandler> updates;
 
-        public delegate void updateHandler(object ob);
+        public delegate void updateHandler(Object ob);
 
         public Table()
         {
