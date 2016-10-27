@@ -5,16 +5,16 @@ namespace observ
     public abstract class TransactionProcessor<TRequest, TSave>
     {
         Handler<bool> Check;
-        Handler<Transaction> Register;
-        SaveHandler<Transaction> Save;
-        public TransactionProcessor(Handler<bool> Check, Handler<Transaction> Register, SaveHandler<Transaction> Save)
+        Handler<TSave> Register;
+        SaveHandler Save;
+        public TransactionProcessor(Handler<bool> Check, Handler<TSave> Register, SaveHandler Save)
         {
             this.Check = Check;
             this.Register = Register;
             this.Save = Save;
         }
 
-        public Transaction Process(TRequest request)
+        public TSave Process(TRequest request)
         {
             if (!Check(request))
                 throw new ArgumentException();
@@ -24,7 +24,7 @@ namespace observ
         }
 
         public delegate T Handler<T>(TRequest request);
-        public delegate void SaveHandler<T>(T result);
+        public delegate void SaveHandler(TSave result);
     }
    
     public class Transaction
