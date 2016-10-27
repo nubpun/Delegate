@@ -154,7 +154,7 @@ namespace work
         {
             foreach (var update in updates)
             {
-                update();
+                update(this);
             }
         }
     }
