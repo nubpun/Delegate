@@ -14,7 +14,7 @@ namespace work
             table.Attach(this);
             this.table = table;
         }
-        public void Update()
+        public void Update(Object sender)
         {
             Console.WriteLine(table);
         }
