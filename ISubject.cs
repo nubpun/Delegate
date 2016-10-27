@@ -10,6 +10,5 @@ namespace observ
     {
         void Attach(IObserver ob);
         void Detach(IObserver ob);
-        void Notify();
     }
 }

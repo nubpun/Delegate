@@ -17,7 +17,7 @@ namespace observ
         protected int countColumn;
         protected List<updateHandler> updates;
 
-        public delegate void updateHandler(Object ob);
+        public delegate void updateHandler(List<List<object>> data);
 
         public Table()
         {
@@ -55,7 +55,7 @@ namespace observ
             }
         }
 
-        public void Put(int row, int column, object value)
+        public void Put(object value, int row, int column)
         {
             if (row >= CountRow || row < 0 || column >= countColumn || column < 0)
             {
@@ -150,11 +150,11 @@ namespace observ
             updates.Remove(ob.Update);
         }
 
-        public void Notify()
+        protected void Notify()
         {
             foreach (var update in updates)
             {
-                update(this);
+                update(data);
             }
         }
     }

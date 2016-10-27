@@ -14,7 +14,7 @@ namespace observ
             table.Attach(this);
             this.table = table;
         }
-        public void Update(Object sender)
+        public void Update(List<List<object>> data)
         {
             Console.WriteLine(table);
         }

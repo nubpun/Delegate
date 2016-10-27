@@ -8,6 +8,6 @@ namespace observ
 {
     interface IObserver
     {
-        void Update(Object sender);
+        void Update(List<List<object>> state);
     }
 }
