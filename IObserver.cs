@@ -8,6 +8,6 @@ namespace work
 {
     interface IObserver
     {
-        void Update();
+        void Update(Object sender);
     }
 }
