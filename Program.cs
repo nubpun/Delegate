@@ -24,7 +24,7 @@ namespace work
             t.Detach(v);
             t.InsertRow(0);
             t.Attach(v);
-            v.Update();
+            v.Update(t);
         }
     }
 }
